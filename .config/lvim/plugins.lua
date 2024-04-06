@@ -1,0 +1,1 @@
+use 'tanvirtin/monokai.nvim'
