@@ -211,7 +211,7 @@ bindsym $mod+Escape exec "betterlockscreen --lock --display 1"
 exec --no-startup-id dex --autostart --environment i3
 
 # start polkit auth
-exec --not-startup-id lxpolkit &
+exec --no-startup-id lxpolkit
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -225,7 +225,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # bluetooth manager
-exec --no-startup-id blueman-mananger
+exec --no-startup-id blueman-applet
 
 # enable touchpad gestures
 exec --no-startup-id libinput-gestures
