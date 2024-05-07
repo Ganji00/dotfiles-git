@@ -21,8 +21,8 @@ set $white      #ffffff
 
 # Window colors.
 # Class		             	border	        bground	        text		    indicator	    child_border
-client.focused		    	$blue           $background-alt $white		    $black          $blue
-client.unfocused	    	$background     $background     $foreground     $black          $black
+client.focused		    	$green           $background-alt $white		    $black          $blue
+client.unfocused	    	$blue     $background     $foreground     $black          $black
 client.focused_inactive		$background-alt $background-alt $foreground     $black          $black
 client.urgent		    	$red            $red            $red            $black          $red
 
