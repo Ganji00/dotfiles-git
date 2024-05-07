@@ -23,7 +23,7 @@ set $white      #ffffff
 # Class		             	  border	         bground	        text		       indicator	     child_border
 client.focused		    	  $green           $background-alt $white  		     $black          $blue
 client.unfocused	    	  $blue            $background     $foreground     $black          $black
-client.focused_inactive		$background-alt  $background-alt $foreground     $black          $black
+client.focused_inactive		$red             $background-alt $foreground     $black          $black
 client.urgent		    	    $red             $red            $red            $black          $red
 
 
@@ -32,6 +32,9 @@ default_floating_border pixel 1
 
 # padding
 gaps inner 8
+
+# title
+title_align center
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
