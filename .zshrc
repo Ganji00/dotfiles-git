@@ -13,6 +13,7 @@ export BROWSER='/usr/bin/google-chrome-stable'
 export EDITOR='nvim'
 
 export PATH=/home/mkiersnowski/.local/bin:$PATH
+export PATH=/home/mkiersnowski/.local/share/JetBrains/Toolbox/scripts:$PATH 
 
 # Path for LaTeX
 export PATH=/usr/bin/latex:$PATH
