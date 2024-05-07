@@ -21,14 +21,14 @@ set $white      #ffffff
 
 # Window colors.
 # Class		             	border	        bground	        text		    indicator	    child_border
-client.focused		    	$blue           $background-alt $white		    $black          $cyan
+client.focused		    	$blue           $background-alt $white		    $black          $blue
 client.unfocused	    	$background     $background     $foreground     $black          $black
 client.focused_inactive		$background-alt $background-alt $foreground     $black          $black
 client.urgent		    	$red            $red            $red            $black          $red
 
 
-default_border pixel 0
-default_floating_border pixel 0 
+default_border pixel 1
+default_floating_border pixel 1
 
 # padding
 gaps inner 8
@@ -131,7 +131,9 @@ set $ws10 "10"
 
 # assign workspaces to monitors
 workspace $ws1 output DisplayPort-1
+workspace $ws1 output DP-2-8
 workspace $ws2 output HDMI-A-0
+workspace $ws2 output DP-1
 workspace $ws3 output eDP
 workspace $ws1 output eDP # i hope it will work the way that if single monitor is preset this config will set it to 1
 
@@ -225,11 +227,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # bluetooth manager
-exec --no-startup-id blueman-applet
+exec --no-startup-id blueman-mananger
 
 # enable touchpad gestures
 exec --no-startup-id libinput-gestures
 
+# autolayout
+exec_always --no-startup-id i3-autolayout autolayout
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
