@@ -131,8 +131,7 @@ workspace $ws1 output DisplayPort-1
 workspace $ws1 output DP-2-8
 workspace $ws2 output HDMI-A-0
 workspace $ws2 output DP-1
-workspace $ws3 output eDP
-workspace $ws1 output eDP # i hope it will work the way that if single monitor is preset this config will set it to 1
+workspace $ws3 output eDP # laptop screen
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
