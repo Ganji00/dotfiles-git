@@ -24,7 +24,7 @@ My dotfiles configuration for Arch Linux
 
 ## Rofi
 
-![rofi screenshot](.screenshots/rofi.png])
+![rofi screenshot](.screenshots/rofi.png)
 
 ## Power menu
 ![power menu screenshot](.screenshots/power_menu.png)
