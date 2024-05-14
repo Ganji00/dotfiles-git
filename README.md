@@ -20,6 +20,19 @@ My dotfiles configuration for Arch Linux
 | Lockscreen | betterlockscreen |
 | Greeter | SDDM |
 
+# Screenshots
+
+## Rofi
+
+![rofi screenshot](.screenshots/rofi.png])
+
+## Power menu
+![power menu screenshot](.screenshots/power_menu.png)
+
+## Applications
+![applications screenshot](.screenshots/apps.png)
+
+
 # How to install the dotfiles.
 
 1. create an alias:
