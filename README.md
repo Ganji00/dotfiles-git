@@ -66,3 +66,7 @@ dotfiles add .zshrc
 dotfiles commit -m "adding .zshrc"
 dotfiles push
 ```
+
+# Packages
+
+packages installation script will be added someday :). 
