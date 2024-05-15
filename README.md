@@ -39,7 +39,7 @@ My dotfiles configuration for Arch Linux
 `alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'`
 
 2. ignore the clone folder:
-`echo ".cfg" >> .gitignore`
+`echo ".dotfiles" >> .gitignore`
 
 3. Clone the repository:
 `git clone --bare <git-repo-url> $HOME/.dotfiles`
