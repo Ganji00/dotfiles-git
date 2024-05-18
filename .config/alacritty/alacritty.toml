@@ -2,36 +2,6 @@ import = [
 	"~/.config/alacritty/monokai-pro-spectrum.toml"
 ]
 
-# SynthWave 84
-
-# Default colors
-#[colors.primary]
-#background = '#262334'
-#foreground = '#ffffff'
-
-# Normal colors
-#[colors.normal]
-#black   = '#-000001'
-#red     = '#fe4449'
-#green   = '#71f1b8'
-#yellow  = '#f96e72'
-#blue    = '#02edf9'
-#magenta = '#ff6edb'
-#cyan    = '#02edf9'
-#white   = '#ffffff'
-
-# Bright colors
-#[colors.bright]
-#black   = '#888887'
-#red     = '#fe4449'
-#green   = '#71f1b8'
-#yellow  = '#fede4d'
-#blue    = '#02edf9'
-#magenta = '#ff6edb'
-#cyan    = '#02edf9'
-#white   = '#ffffff'
-
-
 [window]
 	padding = { x = 5, y = 5 }
 
