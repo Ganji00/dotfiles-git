@@ -228,8 +228,8 @@ exec_always --no-startup-id i3-autolayout autolayout
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# Wallpaper settings
-exec_always --no-startup-id feh --bg-fill $HOME/.wallpapers/monokai.jpg
+# Wallpaper and monitor settings
+exec_always --no-startup-id autorandr --change && feh --bg-scale --no-fehbg $HOME/.wallpapers/monokai.jpg
 
 # Setting up a Polish keyboard layout
 exec_always --no-startup-id setxkbmap pl
@@ -242,6 +242,12 @@ exec --no-startup-id betterlockscreen -u $HOME/.config/synthwave-sunrise.jpg
 
 # Compositor
 exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
+
+# Autolock
+exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio \
+    --timer 300 "./scripts/brightness_control.sh save && ./scripts/brightness_control.sh dim" "./scripts/brightness_control.sh restore" \
+    --timer 60 "betterlockscreen --lock" ""
+
 
 ##################
 # floating rules #
