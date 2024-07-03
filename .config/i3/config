@@ -238,7 +238,7 @@ exec_always --no-startup-id setxkbmap pl
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc 
 
 # Lock screen
-exec --no-startup-id betterlockscreen -u $HOME/.config/synthwave-sunrise.jpg
+exec --no-startup-id betterlockscreen -u $HOME/.wallpapers/monokai.jpg
 
 # Compositor
 exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
