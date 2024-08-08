@@ -10,7 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # env variables
 export BROWSER='/usr/bin/google-chrome-stable'
-export EDITOR='nvim'
+export EDITOR='lvim'
 
 export PATH=/home/mkiersnowski/.local/bin:$PATH
 export PATH=/home/mkiersnowski/.local/share/JetBrains/Toolbox/scripts:$PATH 
