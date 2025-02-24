@@ -243,7 +243,7 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
 # Autolock
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio \
     --timer 300 "./scripts/brightness_control.sh save && ./scripts/brightness_control.sh dim" "./scripts/brightness_control.sh restore" \
-    --timer 60 "systemctl suspend" "./scripts/brightness_control.sh restore" 
+    --timer 600 "systemctl suspend" "./scripts/brightness_control.sh restore" 
 
 
 ##################
