@@ -18,3 +18,4 @@ style = "Beam"
 import = [
 	"~/.config/alacritty/monokai-pro-spectrum.toml"
 ]
+
