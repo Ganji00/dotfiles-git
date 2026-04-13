@@ -20,4 +20,10 @@
       - alsa-utils
       - sl
       - nftables
+      - base-devel
+      - ripgrep
+      - tmux
+      - lazygit
+      - docker
+      - docker-buildx
     state: present

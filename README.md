@@ -91,5 +91,6 @@ ansible-playbook playbook.yml -K
 |:-----|:-----------|
 | `packages` | Installs all required packages via pacman |
 | `shell` | Installs oh-my-zsh, powerlevel10k, zsh plugins, sets zsh as default shell |
+| `aur` | Bootstraps paru and installs AUR packages (pokemon-colorscripts-git, etc.) |
 | `dotfiles` | Clones the bare repo, checks out configs, hides untracked files |
 | `system` | Symlinks system configs (e.g. nftables.conf to /etc/) and enables services |

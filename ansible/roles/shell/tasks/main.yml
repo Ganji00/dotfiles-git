@@ -58,3 +58,15 @@
     dest: "{{ ansible_facts['env']['HOME'] }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
     depth: 1
   when: not zsh_syntax_highlighting.stat.exists
+
+- name: Check if fzf-zsh-plugin is installed
+  ansible.builtin.stat:
+    path: "{{ ansible_facts['env']['HOME'] }}/.oh-my-zsh/custom/plugins/fzf-zsh-plugin"
+  register: fzf_zsh_plugin
+
+- name: Install fzf-zsh-plugin
+  ansible.builtin.git:
+    repo: https://github.com/unixorn/fzf-zsh-plugin.git
+    dest: "{{ ansible_facts['env']['HOME'] }}/.oh-my-zsh/custom/plugins/fzf-zsh-plugin"
+    depth: 1
+  when: not fzf_zsh_plugin.stat.exists
