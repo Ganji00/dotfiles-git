@@ -14,12 +14,3 @@
   ansible.builtin.systemd:
     name: nftables
     enabled: true
-
-# Add more system-level symlinks or services here as needed
-# - name: Symlink some other config
-#   become: true
-#   ansible.builtin.file:
-#     src: "{{ ansible_facts['env']['HOME'] }}/.config/something.conf"
-#     dest: /etc/something.conf
-#     state: link
-#     force: true

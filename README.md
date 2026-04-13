@@ -81,6 +81,7 @@ sudo pacman -S ansible
 
 ```bash
 cd ~/ansible
+ansible-galaxy install -r requirements.yml
 ansible-playbook playbook.yml -K
 ```
 
@@ -89,5 +90,6 @@ ansible-playbook playbook.yml -K
 | Role | Description |
 |:-----|:-----------|
 | `packages` | Installs all required packages via pacman |
+| `shell` | Installs oh-my-zsh, powerlevel10k, zsh plugins, sets zsh as default shell |
 | `dotfiles` | Clones the bare repo, checks out configs, hides untracked files |
 | `system` | Symlinks system configs (e.g. nftables.conf to /etc/) and enables services |
