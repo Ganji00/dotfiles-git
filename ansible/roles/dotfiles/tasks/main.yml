@@ -1,0 +1,30 @@
+---
+- name: Clone dotfiles bare repo
+  ansible.builtin.git:
+    repo: "git@github.com:Ganji00/dotfiles-git.git"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.dotfiles"
+    bare: true
+  register: dotfiles_clone
+  ignore_errors: true
+
+- name: Checkout dotfiles
+  ansible.builtin.command:
+    cmd: git --git-dir={{ ansible_facts['env']['HOME'] }}/.dotfiles/ --work-tree={{ ansible_facts['env']['HOME'] }} checkout --force
+  when: dotfiles_clone.changed
+
+- name: Check if untracked files are already hidden
+  ansible.builtin.command:
+    cmd: git --git-dir={{ ansible_facts['env']['HOME'] }}/.dotfiles/ --work-tree={{ ansible_facts['env']['HOME'] }} config --get status.showUntrackedFiles
+  register: show_untracked
+  changed_when: false
+  failed_when: false
+
+- name: Hide untracked files in dotfiles repo
+  ansible.builtin.command:
+    cmd: git --git-dir={{ ansible_facts['env']['HOME'] }}/.dotfiles/ --work-tree={{ ansible_facts['env']['HOME'] }} config --local status.showUntrackedFiles no
+  when: show_untracked.stdout != "no"
+
+- name: Create ~/CodeWork directory
+  ansible.builtin.file:
+    path: "{{ ansible_facts['env']['HOME'] }}/CodeWork"
+    state: directory

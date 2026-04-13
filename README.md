@@ -67,6 +67,27 @@ dotfiles commit -m "adding .zshrc"
 dotfiles push
 ```
 
-# Packages
+# Automated setup with Ansible
 
-packages installation script will be added someday :). 
+Instead of manual installation, you can use the included Ansible playbook to automatically install packages, clone dotfiles, and configure system services.
+
+## Prerequisites
+
+```
+sudo pacman -S ansible
+```
+
+## Usage
+
+```bash
+cd ~/ansible
+ansible-playbook playbook.yml -K
+```
+
+## What it does
+
+| Role | Description |
+|:-----|:-----------|
+| `packages` | Installs all required packages via pacman |
+| `dotfiles` | Clones the bare repo, checks out configs, hides untracked files |
+| `system` | Symlinks system configs (e.g. nftables.conf to /etc/) and enables services |

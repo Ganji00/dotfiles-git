@@ -1,0 +1,24 @@
+---
+- name: Install core packages
+  become: true
+  community.general.pacman:
+    name:
+      - git
+      - zsh
+      - neovim
+      - alacritty
+      - rofi
+      - thunar
+      - dunst
+      - picom
+      - flameshot
+      - arandr
+      - tree
+      - eza
+      - tldr
+      - thefuck
+      - xclip
+      - alsa-utils
+      - sl
+      - nftables
+    state: present

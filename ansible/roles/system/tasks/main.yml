@@ -1,0 +1,25 @@
+---
+# Symlink system configs that need to live outside $HOME
+- name: Symlink nftables.conf to /etc/
+  become: true
+  ansible.builtin.file:
+    src: "{{ ansible_facts['env']['HOME'] }}/.config/nftables.conf"
+    dest: /etc/nftables.conf
+    state: link
+    force: true
+  notify: Restart nftables
+
+- name: Enable nftables
+  become: true
+  ansible.builtin.systemd:
+    name: nftables
+    enabled: true
+
+# Add more system-level symlinks or services here as needed
+# - name: Symlink some other config
+#   become: true
+#   ansible.builtin.file:
+#     src: "{{ ansible_facts['env']['HOME'] }}/.config/something.conf"
+#     dest: /etc/something.conf
+#     state: link
+#     force: true
