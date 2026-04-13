@@ -6,5 +6,6 @@
 
   roles:
     - packages
+    - shell
     - dotfiles
     - system
