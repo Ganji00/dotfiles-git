@@ -7,6 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "buffer_font_weight": 400.0,
+  "terminal": {
+    "font_size": 15.0
+  },
   "agent_servers": {
     "claude-acp": {
       "type": "registry"
@@ -35,8 +39,8 @@
     "trust_all_worktrees": true,
   },
   "base_keymap": "JetBrains",
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "ui_font_size": 18.0,
+  "buffer_font_size": 15.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
@@ -150,6 +154,22 @@
       "format_on_save": "on",
       "soft_wrap": "prefer_line",
       "language_servers": ["rust-analyzer"],
+    },
+    "Go": {
+      "tab_size": 4,
+      "hard_tabs": true,
+      "format_on_save": "on",
+      "language_servers": ["gopls"],
+      "formatter": [
+        { "code_action": "source.organizeImports" },
+        { "language_server": { "name": "gopls" } },
+      ],
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true,
+        "show_type_hints": true,
+      },
     },
   },
   "lsp": {
