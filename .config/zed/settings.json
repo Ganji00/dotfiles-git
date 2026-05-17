@@ -7,27 +7,32 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
   "cli_default_open_behavior": "new_window",
   "icon_theme": "Material Icon Theme",
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "agent": {
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "base_keymap": "JetBrains",
   "ui_font_size": 16,
@@ -35,114 +40,117 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark",
+    "dark": "Zedokai (Filter Spectrum)",
   },
   "languages": {
     "Python": {
-      "language_servers": [
-        "!basedpyright",
-        "ty",
-        "ruff"
-      ],
+      "language_servers": ["!basedpyright", "ty", "ruff"],
       "format_on_save": "on",
       "formatter": {
-        "language_server": { "name": "ruff" }
-      }
+        "language_server": { "name": "ruff" },
+      },
     },
     "TypeScript": {
       "language_servers": ["vtsls", "eslint", "!typescript-language-server"],
       "format_on_save": "on",
       "formatter": [
         {
-          "code_action": "source.fixAll.eslint"
+          "code_action": "source.fixAll.eslint",
         },
         {
-          "code_action": "source.organizeImports"
+          "code_action": "source.organizeImports",
         },
         {
           "language_server": {
-            "name": "vtsls"
-          }
-        }
+            "name": "vtsls",
+          },
+        },
       ],
       "inlay_hints": {
         "enabled": true,
         "show_parameter_hints": true,
         "show_other_hints": true,
-        "show_type_hints": true
-      }
+        "show_type_hints": true,
+      },
     },
     "TSX": {
       "language_servers": ["vtsls", "eslint", "!typescript-language-server"],
       "format_on_save": "on",
       "formatter": [
         {
-          "code_action": "source.fixAll.eslint"
+          "code_action": "source.fixAll.eslint",
         },
         {
-          "code_action": "source.organizeImports"
+          "code_action": "source.organizeImports",
         },
         {
           "language_server": {
-            "name": "vtsls"
-          }
-        }
+            "name": "vtsls",
+          },
+        },
       ],
       "inlay_hints": {
         "enabled": true,
         "show_parameter_hints": true,
         "show_other_hints": true,
-        "show_type_hints": true
-      }
+        "show_type_hints": true,
+      },
     },
     "JavaScript": {
       "language_servers": ["vtsls", "eslint", "!typescript-language-server"],
       "format_on_save": "on",
       "formatter": [
         {
-          "code_action": "source.fixAll.eslint"
+          "code_action": "source.fixAll.eslint",
         },
         {
-          "code_action": "source.organizeImports"
+          "code_action": "source.organizeImports",
         },
         {
           "language_server": {
-            "name": "vtsls"
-          }
-        }
+            "name": "vtsls",
+          },
+        },
       ],
       "inlay_hints": {
         "enabled": true,
         "show_parameter_hints": true,
         "show_other_hints": true,
-        "show_type_hints": true
-      }
+        "show_type_hints": true,
+      },
     },
     "JSX": {
       "language_servers": ["vtsls", "eslint", "!typescript-language-server"],
       "format_on_save": "on",
       "formatter": [
         {
-          "code_action": "source.fixAll.eslint"
+          "code_action": "source.fixAll.eslint",
         },
         {
-          "code_action": "source.organizeImports"
+          "code_action": "source.organizeImports",
         },
         {
           "language_server": {
-            "name": "vtsls"
-          }
-        }
-      ]
+            "name": "vtsls",
+          },
+        },
+      ],
     },
     "JSON": {
       "format_on_save": "on",
-      "formatter": "prettier"
+      "formatter": "prettier",
     },
     "JSONC": {
       "format_on_save": "on",
-      "formatter": "prettier"
-    }
+      "formatter": "prettier",
+    },
+    "Rust": {
+      "tab_size": 4,
+      "preferred_line_length": 88,
+      "format_on_save": "on",
+      "soft_wrap": "prefer_line",
+      "language_servers": ["rust-analyzer"],
+    },
   },
   "lsp": {
     "vtsls": {
@@ -153,7 +161,7 @@
           "suggest": { "completeFunctionCalls": true },
           "preferences": {
             "importModuleSpecifier": "shortest",
-            "preferTypeOnlyAutoImports": true
+            "preferTypeOnlyAutoImports": true,
           },
           "inlayHints": {
             "parameterNames": { "enabled": "all" },
@@ -161,8 +169,8 @@
             "variableTypes": { "enabled": true },
             "propertyDeclarationTypes": { "enabled": true },
             "functionLikeReturnTypes": { "enabled": true },
-            "enumMemberValues": { "enabled": true }
-          }
+            "enumMemberValues": { "enabled": true },
+          },
         },
         "javascript": {
           "updateImportsOnFileMove": { "enabled": "always" },
@@ -172,18 +180,23 @@
             "parameterTypes": { "enabled": true },
             "variableTypes": { "enabled": true },
             "propertyDeclarationTypes": { "enabled": true },
-            "functionLikeReturnTypes": { "enabled": true }
-          }
-        }
-      }
+            "functionLikeReturnTypes": { "enabled": true },
+          },
+        },
+      },
     },
     "eslint": {
       "settings": {
         "codeActionOnSave": { "rules": ["*"] },
-        "rulesCustomizations": [
-          { "rule": "*", "severity": "downgrade" }
-        ]
-      }
-    }
-  }
+        "rulesCustomizations": [{ "rule": "*", "severity": "downgrade" }],
+      },
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy",
+        },
+      },
+    },
+  },
 }
