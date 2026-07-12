@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "claude-fable-5[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "sh ~/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "devops-skills@akin-ozer": true
+  },
+  "extraKnownMarketplaces": {
+    "akin-ozer": {
+      "source": {
+        "source": "github",
+        "repo": "akin-ozer/cc-devops-skills"
+      }
+    }
+  },
+  "syntaxHighlightingDisabled": false,
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "theme": "dark-ansi",
+  "verbose": false,
+  "terminalProgressBarEnabled": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
+}
