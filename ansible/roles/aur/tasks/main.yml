@@ -1,5 +1,7 @@
 ---
+# Arch-only: AUR helper + AUR packages, no macOS equivalent.
 - name: Check if paru is installed
+  when: ansible_facts['os_family'] == "Archlinux"
   ansible.builtin.stat:
     path: /usr/bin/paru
   register: paru_bin
@@ -9,21 +11,22 @@
     repo: https://aur.archlinux.org/paru.git
     dest: /tmp/paru
     depth: 1
-  when: not paru_bin.stat.exists
+  when: ansible_facts['os_family'] == "Archlinux" and not paru_bin.stat.exists
 
 - name: Build and install paru
   ansible.builtin.command:
     cmd: makepkg -si --noconfirm
     chdir: /tmp/paru
-  when: not paru_bin.stat.exists
+  when: ansible_facts['os_family'] == "Archlinux" and not paru_bin.stat.exists
 
 - name: Clean up paru build directory
   ansible.builtin.file:
     path: /tmp/paru
     state: absent
-  when: not paru_bin.stat.exists
+  when: ansible_facts['os_family'] == "Archlinux" and not paru_bin.stat.exists
 
 - name: Install AUR packages
+  when: ansible_facts['os_family'] == "Archlinux"
   kewlfft.aur.aur:
     name:
       - pokemon-colorscripts-git

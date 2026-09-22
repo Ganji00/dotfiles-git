@@ -2,6 +2,7 @@
 # Symlink system configs that need to live outside $HOME
 - name: Symlink nftables.conf to /etc/
   become: true
+  when: ansible_facts['os_family'] == "Archlinux"
   ansible.builtin.file:
     src: "{{ ansible_facts['env']['HOME'] }}/.config/nftables.conf"
     dest: /etc/nftables.conf
@@ -11,6 +12,7 @@
 
 - name: Enable nftables
   become: true
+  when: ansible_facts['os_family'] == "Archlinux"
   ansible.builtin.systemd:
     name: nftables
     enabled: true

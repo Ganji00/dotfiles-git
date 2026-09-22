@@ -73,8 +73,16 @@ Instead of manual installation, you can use the included Ansible playbook to aut
 
 ## Prerequisites
 
+Arch Linux:
 ```
 sudo pacman -S ansible
+```
+
+macOS:
+```
+xcode-select --install
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install ansible
 ```
 
 ## Usage
@@ -87,10 +95,23 @@ ansible-playbook playbook.yml -K
 
 ## What it does
 
+Roles are OS-aware: each task checks `ansible_facts['os_family']` and picks
+Arch (pacman) or macOS (Homebrew) as appropriate, so the same playbook runs
+on both without editing anything.
+
 | Role | Description |
 |:-----|:-----------|
-| `packages` | Installs all required packages via pacman |
+| `homebrew` | macOS only. Bootstraps Homebrew, Xcode Command Line Tools, taps `hashicorp/tap` |
+| `packages` | Installs packages via pacman (Arch) or Homebrew (macOS) |
 | `shell` | Installs oh-my-zsh, powerlevel10k, zsh plugins, sets zsh as default shell |
-| `aur` | Bootstraps paru and installs AUR packages (pokemon-colorscripts-git, etc.) |
+| `aur` | Arch only. Bootstraps paru and installs AUR packages (pokemon-colorscripts-git, etc.) |
 | `dotfiles` | Clones the bare repo, checks out configs, hides untracked files |
-| `system` | Symlinks system configs (e.g. nftables.conf to /etc/) and enables services |
+| `system` | Arch only. Symlinks system configs (e.g. nftables.conf to /etc/) and enables services |
+
+### macOS scope
+
+Only `homebrew`, `packages` (CLI tools + Alacritty/Docker), `shell`, and
+`dotfiles` apply. The window manager, bar, launcher, lockscreen, and greeter
+in the Configuration table above (i3, Polybar, Rofi, betterlockscreen, SDDM)
+are X11/Linux-only and have no macOS equivalent, `system` role (nftables) is
+skipped too.

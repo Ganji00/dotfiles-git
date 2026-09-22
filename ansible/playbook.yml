@@ -5,6 +5,7 @@
   become: false
 
   roles:
+    - homebrew
     - packages
     - shell
     - aur

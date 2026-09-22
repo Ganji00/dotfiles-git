@@ -1,17 +1,38 @@
 ---
-- name: Install shell packages
+- name: Install shell packages (Arch)
   become: true
+  when: ansible_facts['os_family'] == "Archlinux"
   community.general.pacman:
     name:
       - zsh
       - fzf
     state: present
 
+- name: Install shell packages (macOS)
+  when: ansible_facts['os_family'] == "Darwin"
+  community.general.homebrew:
+    name:
+      - zsh
+      - fzf
+    state: present
+  environment:
+    PATH: "{{ homebrew_prefix }}/bin:{{ ansible_env.PATH }}"
+
+- name: Set zsh shell path fact (Arch)
+  when: ansible_facts['os_family'] == "Archlinux"
+  ansible.builtin.set_fact:
+    zsh_shell_path: /usr/bin/zsh
+
+- name: Set zsh shell path fact (macOS)
+  when: ansible_facts['os_family'] == "Darwin"
+  ansible.builtin.set_fact:
+    zsh_shell_path: "{{ homebrew_prefix }}/bin/zsh"
+
 - name: Set zsh as default shell
   become: true
   ansible.builtin.user:
     name: "{{ ansible_facts['user_id'] }}"
-    shell: /usr/bin/zsh
+    shell: "{{ zsh_shell_path }}"
 
 - name: Check if oh-my-zsh is installed
   ansible.builtin.stat:

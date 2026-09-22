@@ -1,6 +1,7 @@
 ---
-- name: Install core packages
+- name: Install core packages (Arch)
   become: true
+  when: ansible_facts['os_family'] == "Archlinux"
   community.general.pacman:
     name:
       - git
@@ -26,4 +27,41 @@
       - lazygit
       - docker
       - docker-buildx
+      - kubectl
+      - kubectx
+      - terraform
     state: present
+
+# --- macOS ---
+# rofi, thunar, dunst, picom, arandr, xclip, alsa-utils, nftables are
+# X11/Linux-only with no macOS equivalent, skipped here on purpose.
+
+- name: Install core packages (macOS)
+  when: ansible_facts['os_family'] == "Darwin"
+  community.general.homebrew:
+    name:
+      - git
+      - neovim
+      - tree
+      - eza
+      - tldr
+      - ripgrep
+      - tmux
+      - lazygit
+      - kubectl
+      - kubectx
+      - hashicorp/tap/terraform
+      - sl
+    state: present
+  environment:
+    PATH: "{{ homebrew_prefix }}/bin:{{ ansible_env.PATH }}"
+
+- name: Install core casks (macOS)
+  when: ansible_facts['os_family'] == "Darwin"
+  community.general.homebrew_cask:
+    name:
+      - alacritty
+      - docker
+    state: present
+  environment:
+    PATH: "{{ homebrew_prefix }}/bin:{{ ansible_env.PATH }}"
