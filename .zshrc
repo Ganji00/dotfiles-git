@@ -97,6 +97,9 @@ alias ll="eza -lh --group-directories-first"
 alias la="eza -lah --group-directories-first"
 alias ls="eza -h --group-directories-first"
 
+# k8s
+alias k="kubectl"
+
 # ssh with colors
 alias ssh="TERM=xterm-256color ssh"
 
