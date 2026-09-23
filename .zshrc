@@ -84,6 +84,7 @@ plugins=(git
 	zsh-autosuggestions
 	zsh-syntax-highlighting	
   z
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
